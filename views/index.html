@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="/public/css/index.css">
+</head>
+<body>
+    <div class="content">
+        <div class="wrap">
+            <form action="/postData" method="POST">
+                <div class="box">
+                    <textarea name="content" value="说说今天有趣的事"></textarea> 
+                </div>
+                <div class="publish">
+                    您的大名：<input type="text" name="name">
+                    <!-- <a href="javascript:void(0);" class="W_btn">发布</a> -->
+                    <button class="W_btn">发布</button>
+                </div>
+            </form>
+        </div>
+        <div class="list">
+            <ul>
+                {{each message}}
+                <!--  {{$value}} 遍历 message 中的每一项  -->
+                <!--  {{$index}} 遍历 message 中的每一项的下标  -->
+                <li>
+                    <img src="{{$value.img}}"  alt="" class="pic">
+                    <div class="list_con">
+                            
+                        <div class="time">
+                            <strong>发表时间:  <i>{{$value.time}}</i></strong>
+                            <img src="/public/images/lj.jpg" alt="">
+                        </div>
+                        <p><b>{{$value.name}}:</b> {{$value.content}}</p>
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
